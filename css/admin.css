@@ -1,0 +1,45 @@
+body {
+  font-family:monospace;
+    margin-top:30px;
+}
+
+div {
+    margin-left:10%;
+}
+
+p {
+  line-height:1.2em;
+}
+
+input {
+  font-family:monospace;
+  padding:5px;
+  margin:10px;
+}
+
+input[type="text"] {
+  width:400px;
+}
+
+input[name="title"] {
+    width:550px;
+}
+
+ul {
+  width:840px;
+}
+
+li {
+  margin:10px;
+  float:left;
+  width:240px;
+  height:240px;
+}
+
+li img {
+  width:100%;
+}
+
+.error {
+  color:red;
+}

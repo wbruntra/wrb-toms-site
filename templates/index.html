@@ -1,0 +1,53 @@
+<head>
+<title>Polyglossia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/js/magnific/magnific-popup.css">
+  <script src="/js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+  <div id="colOne">
+    <div id="side-top">
+      <span class="title">
+  <p>Polyglossia Films</p>
+      </span>
+
+      <img src="../images/ts_business_card.png" alt="" width="53" height="63">
+      <span class="page-links">
+  <p>Videography</p>
+  <a href="http://polyglossiafilms.com/photography.html"><p>Photography</p></a>
+      </span>
+    </div>
+    <div id="side-botton">
+      <p>Tom Slemmons is a freelance videographer and photographer based in Tokyo.
+      </p>
+      <p>
+        In addition to freelance videography he is also the current English supervisor for NHK Educational children's program Eigo-de-asobo. Tom has been living in Japan since 2006.</p>
+      <a href="mailto:tom@polyglossiafilms.com">
+        <!-- content -->
+        <p>All inquiries: tom@polyglossiafilms.com</p>
+      </a>
+    </div>
+  </div>
+  <div id="colTwo">
+    <div id="title-bar" class="title">
+      <p>----------Videography----------</p>
+    </div>
+    <div class="gal">
+      {% for video in videos_db %}
+        <span class="entry" data-entry-id="{{video.video_id}}">
+        <a class="popup-youtube" title="{{video.title}}" href="http://www.youtube.com/watch?v={{video.video_id}}">
+          <img src="http://img.youtube.com/vi/{{video.video_id}}/0.jpg"></a>
+        <p>{{video.title}}</p>
+        <p>{{video.year}}</p>
+      </span>
+      {% endfor %}
+    </div>
+
+  </div>
+  <script src="/js/magnific/jquery.magnific-popup.min.js">
+  </script>
+  <script src="js/sticky/jquery.sticky.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- <script src="/js/lister.js"></script> -->
+</body>

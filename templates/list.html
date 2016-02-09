@@ -1,0 +1,22 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+
+<div>
+<p>Change the order of the videos:</p>
+
+<ul class="sortable gal">
+  {% for video in videos_db %}
+
+  <li data-entry-id="{{video.video_id}}">
+    <img src="http://img.youtube.com/vi/{{video.video_id}}/0.jpg">
+  {{video.title}}</li>
+
+  {% endfor %}
+</ul>
+<button id="save-order">Save Order</button>
+</div>
+<script src="/js/sortable/html.sortable.js"></script>
+<!-- <script src="/js/lister.js"></script> -->
+<script src="/js/reorder.js"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+application: toms-site
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+builtins:
+- remote_api: on
+
+handlers:
+
+- url: /(.*\.(png))
+  static_files: \1
+  upload: (.*\.(png))
+  expiration: "2d"
+
+- url: /(.*\.(gif|jpg|js|css))
+  static_files: \1
+  upload: static/(.*\.(gif|jpg|js|css))
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: "2.6"

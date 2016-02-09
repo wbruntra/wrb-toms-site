@@ -1,0 +1,14 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+  <div>
+<p>Choose the videos you want to delete:</p>
+<form action="/delete" method="post">
+{% for video in videos %}
+
+<input type="checkbox" name="unwanted" value="{{video.key.id()}}">{{video.title}}<br>
+
+{% endfor %}
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}

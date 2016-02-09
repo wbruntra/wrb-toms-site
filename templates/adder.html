@@ -1,0 +1,35 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+{{ exists }}
+<div>
+    <p>Automatic Method:</p>
+    <p>I will try to get the info for you if you put the URL in here</p>
+    <form action="">
+    <input id="my-url" type="text" placeholder="URL">
+    <input id="parse" type="submit" value="Try it">
+    </form>
+        <p>If that didn't work, fill in these fields to add a video manually</p>
+<form id="add-form" class="adding" action="/admin" method="post">
+  <input type="text" name="title" placeholder="Video Title"><br>
+  <input type="text" name="code" placeholder="Video ID"><br>
+  <input type="text" name="year" placeholder="Year"><br>
+  <input type="submit" value="Add Video">
+</form>
+<p class="error"> {{error}} </p>
+
+  <p>FYI: The "Video ID" is the part on the end of a YouTube video link. For example, this link:<br>
+  https://www.youtube.com/watch?v=MwlqymYLCb4<br>
+  has the ID "MwlqymYLCb4"</p>
+
+<p>Here are some examples to try:</p>
+  <button id="example-1">Example 1</button>
+  <button id="example-2">Example 2</button>
+  <button id="example-3">Example 3</button>
+</div>
+<div style="visibility:hidden">
+<p>Once the code is filled in, I will try to guess the year and title for you:</p>
+    <button id="ajaxer">Press Here</button>
+</div>
+<script src="/js/adder.js"></script>
+{% endblock %}
