@@ -4,6 +4,7 @@
   <div>
 <p>Choose the videos you want to delete:</p>
 <form action="/delete" method="post">
+<input id="select-all" type="checkbox">Select All<br>
 {% for video in videos %}
 
 <input type="checkbox" name="unwanted" value="{{video.key.id()}}">{{video.title}}<br>

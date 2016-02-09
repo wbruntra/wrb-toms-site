@@ -10,6 +10,8 @@ $('.sortable').sortable();
 
 $('.sortable').sortable().bind('sortupdate',function(e, ui){
   a = ui;
+  console.log('order changed');
+  $('.success').hide();
   order = recordOrder();
 });
 
@@ -23,11 +25,13 @@ $('#save-order').click(function(e){
     type: 'POST',
     data: {order:state
     },
-    success: function(data){
-      console.log('success!');
-      console.log(data);
-    },
+    success: order_saved,
     complete:function(){
     }
   })
 });
+
+function order_saved(data) {
+  $('.success').show()
+  console.log(data)
+}

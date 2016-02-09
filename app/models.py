@@ -9,10 +9,6 @@ class Video(ndb.Model):
     display_order = ndb.IntegerProperty(default=999)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
-# class VideoOrder(ndb.Model):
-#     display_order = ndb.StringProperty()
-#     date = ndb.DateTimeProperty(auto_now_add=True)
-
 class User(ndb.Model):
     username = ndb.StringProperty(required = True)
     email = ndb.StringProperty(required = True)

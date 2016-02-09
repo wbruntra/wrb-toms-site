@@ -54,8 +54,19 @@ class MainHandler(Handler):
     def get(self):
         q = Video.query().order(Video.display_order, Video.date)
         videos_db = q.fetch(100)
-        self.session['foo'] = 'bar'
         self.render('index.html',videos_db=videos_db)
+
+### These are the handlers that deal with Admin functions
+
+class SigninHandler(Handler):
+    def get(self):
+        self.render('signin.html')
+    def post(self):
+        username = self.request.get('username')
+        pw = self.request.get('pw')
+        if User.login(username,pw):
+            self.session['username'] = username
+        self.redirect('/admin')
 
 class AdminHandler(Handler):
     @require_user
@@ -81,16 +92,6 @@ class AdminHandler(Handler):
             time.sleep(1)
             self.redirect('/admin')
 
-class SigninHandler(Handler):
-    def get(self):
-        self.render('signin.html')
-    def post(self):
-        username = self.request.get('username')
-        pw = self.request.get('pw')
-        if User.login(username,pw):
-            self.session['username'] = username
-        self.redirect('/admin')
-
 class VideoLister(Handler):
     @require_user
     def get(self):
@@ -108,13 +109,6 @@ class VideoLister(Handler):
             v.put()
         self.write('OK')
 
-class DebugHandler(Handler):
-    def get(self):
-        logging.info("hello, world!")
-        videos = Video.query()
-        users = User.query()
-        self.render('debugger.html',videos=videos, users=users)
-
 class DeleteHandler(Handler):
     @require_user
     def get(self):
@@ -130,6 +124,16 @@ class DeleteHandler(Handler):
             video.key.delete()
         time.sleep(1)
         self.redirect('/list')
+
+
+### These are pretty  much just for testing
+
+class DebugHandler(Handler):
+    def get(self):
+        logging.info("hello, world!")
+        videos = Video.query()
+        users = User.query()
+        self.render('debugger.html',videos=videos, users=users)
 
 class DropHandler(Handler):
     def get(self,table_name):
