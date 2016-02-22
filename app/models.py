@@ -13,6 +13,7 @@ class User(ndb.Model):
     username = ndb.StringProperty(required = True)
     email = ndb.StringProperty(required = True)
     pw_hash = ndb.StringProperty(required = True)
+    salt = ndb.StringProperty(required=True)
 
     @classmethod
     def by_name(cls, name):
@@ -22,5 +23,5 @@ class User(ndb.Model):
     @classmethod
     def login(cls, name, pw):
         u = cls.by_name(name)
-        if u and valid_pw(name, pw, u.pw_hash):
+        if u and valid_pw(name, pw, u.salt, u.pw_hash):
             return u

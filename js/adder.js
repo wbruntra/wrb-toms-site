@@ -74,8 +74,6 @@ function requestYoutube(vid_id) {
     });
 };
 
-valid_id = "7C9EYka6fIU";
-invalid_id = "somenonsen3"
 function validateYoutube(vid_id) {
   $.ajax({
     dataType:"json",

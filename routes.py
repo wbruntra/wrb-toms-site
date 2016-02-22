@@ -13,5 +13,6 @@ route_list = [
 	(r'^/signin',SigninHandler),
 	(r'^/seed',SeedHandler),
 	(r'^/useradd',AddUsers),
-	(r'^/debug',DebugHandler)
+	(r'^/debug',DebugHandler),
+	(r'^/askyoutube',YouTubeRequest)
 	]

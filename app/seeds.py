@@ -27,9 +27,10 @@ def get_users():
     users = [
         {'username':'william',
         'email':'bill.bruntrager@gmail.com',
-        'pw':'Netscape1'},
+        'pw':'f98a6464c4e59078f1eee74a90233a5b04a76326846451a680764208c1bc371d',
+        'salt':'mqgCB'},
         {'username':'tom',
         'email':'tom.slemmons@gmail.com',
-        'pw':'Netscape1'}
+        'pw':'2e6e4c02bd2b5597bb8e30ed1a36ff3157fe055a244c4273f4305b45c1777b3e','salt':'vyCyK'}
     ]
     return users

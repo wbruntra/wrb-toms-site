@@ -1,11 +1,10 @@
 import logging
 import time
 
-import hashlib
-
 import webapp2
 import jinja2
 
+import urllib2
 import json
 import os
 
@@ -54,7 +53,11 @@ class MainHandler(Handler):
     def get(self):
         q = Video.query().order(Video.display_order, Video.date)
         videos_db = q.fetch(100)
-        self.render('index.html',videos_db=videos_db)
+        self.render('video-index.html',videos_db=videos_db)
+
+class PhotoHandler(Handler):
+    def get(self):
+        self.render('hello world!')
 
 ### These are the handlers that deal with Admin functions
 
@@ -129,6 +132,7 @@ class DeleteHandler(Handler):
 ### These are pretty  much just for testing
 
 class DebugHandler(Handler):
+    @require_user
     def get(self):
         logging.info("hello, world!")
         videos = Video.query()
@@ -146,14 +150,30 @@ class DropHandler(Handler):
             entry.key.delete()
         self.write('All %s deleted' % table_name)
 
+class YouTubeRequest(Handler):
+    def post(self):
+        jsonstring = self.request.body
+        logging.info(jsonstring)
+        data = json.loads(jsonstring)
+        vid_id = data['id']
+        logging.info(data)
+        API_KEY = "AIzaSyDlq1ibZttSj5wjHmSXn3EDrUQs-GjojNk"
+        URL = "https://www.googleapis.com/youtube/v3/videos"
+        msg = {}
+        msg['key']= API_KEY
+        msg['id']= vid_id
+        msg['part']= 'snippet'
+
+
 class SeedHandler(Handler):
+    @require_user
     def get(self):
         videos = get_videos()
         for video in videos:
             title = video['title']
             code = video['video_id']
             year = video['year']
-            qry = Video.query(Video.video_id == code).fetch(1)
+            qry = Video.query(Video.video_id == code).get()
             if not qry:
                 new_video = Video(video_id=code,
                 title=title,
@@ -168,11 +188,13 @@ class AddUsers(Handler):
         for user in users:
             username = user['username']
             email = user['email']
-            pw = make_pw_hash(username,user['pw'])
+            pw = user['pw']
+            salt = user['salt']
             u = User.query(User.username == username).get()
             if not u:
                 new_user = User(username = username,
                 email = email,
-                pw_hash = pw)
+                pw_hash = pw,
+                salt = salt)
                 new_user.put()
         self.write('Added the users')
