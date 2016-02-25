@@ -1,17 +1,24 @@
 {% extends 'layout.html' %}
-
 {% block content %}
-<div id="title-bar" class="title">
-  <p>----------Videography----------</p>
-</div>
-<div class="gal">
-  {% for video in videos_db %}
-    <span class="entry" data-entry-id="{{video.video_id}}">
+<div class="col-xs-12 col-md-9">
+  <div class="row text-center">
+    <div id="title-bar" class="col-md-12 headline">
+      <h3>----------Videography----------</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="gal">
+      {% for video in videos_db %}
+      <div class="col-xs-6 col-md-4 galbox">
+        <span class="entry" data-entry-id="{{video.video_id}}">
     <a class="popup-youtube" title="{{video.title}}" href="http://www.youtube.com/watch?v={{video.video_id}}">
       <img src="http://img.youtube.com/vi/{{video.video_id}}/0.jpg"></a>
     <p>{{video.title}}</p>
     <p>{{video.year}}</p>
   </span>
-  {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -1,35 +1,40 @@
-body {
-  margin-top:30px;
-    width:70%;
+.container {
+  padding-top:30px;
+  margin-left:2%;
 	font-family:Courier New, Courier, monospace;
-	font-size:14px;
-	color: #000;
-    width:1240px;
 }
 
-#colOne {
-  margin-left:60px;
-    width:200px;
-  float:left;
-}
-
-#side-top {
+.headline {
+  margin-bottom:40px;
+  text-transform: uppercase;
   text-align:center;
-  margin-bottom:50px;
 }
 
-#side-top img {
-  margin-top:0;
+.title {
+  font-size:17px;
 }
 
-#colTwo {
-  margin:10px;
-  margin-left:40px;
-  width:900px;
-  overflow:auto;
-  float:left;
+.navbox {
+  text-align:center;
+  margin-bottom: 30px;
 }
 
+.logo {
+  /*padding-left:15px;*/
+  height:60px;
+  width:auto;
+}
+
+.links p {
+  margin-bottom: 10px;
+  text-transform:uppercase;
+}
+
+
+.description {
+  font-size:13px;
+}
+/*
 #title-bar {
   text-align: center;
   font-size:1.8em;
@@ -41,9 +46,9 @@ body {
 }
 
 #container {
-	width: 80%;  
+	width: 80%;
 	background:#fff;
-	margin: 0 auto; 
+	margin: 0 auto;
 	-webkit-box-shadow: 0px 0px 15px #000;
 	-moz-box-shadow: 0px 0px 15px #000;
 	padding-bottom:30px
@@ -57,32 +62,48 @@ a:hover, a:active {color:#CC5500; text-decoration:none}
 
 .info {width:800px; margin:0 auto;  margin-top:20px; text-align:center; font-size:12px; padding-bottom:25px;}
 .info a, .info a:visited {color:#333}
-.info a:hover {color:#000}
+.info a:hover {color:#000}*/
 
-
-.gal img {
-    margin:10px;
-    width:236px;
-    height:160px;
+@media (max-width:991px) {
+  .galbox {
+    height:320px;
+  }
 }
+
+@media (min-width:992px) {
+  .galbox {
+    height:260px;
+  }
+}
+
+.galbox p {
+  margin-top:5px;
+  line-height: .9em;
+}
+
 .gal img:hover {
   box-shadow:0px 0px 5px #333;
   -webkit-box-shadow: 0px 0px 5px #333;
   -moz-box-shadow: 0px 0px 5px #333;
 }
 
-.gal .entry {
+.gal img {
+    width:100%;
+    height:auto;
+}
+
+/*.gal .galbox {
   width:280px;
   float:left;
   height:250px;
-}
+}*/
 
-.entry p {
+/*.entry p {
   margin:5px;
   padding-left:5px;
-}
+}*/
 
-.title {
+/*.title {
   font-size:18px;
 }
 
@@ -93,4 +114,4 @@ a:hover, a:active {color:#CC5500; text-decoration:none}
 
 .page-links a {
   color:black;
-}
+}*/
