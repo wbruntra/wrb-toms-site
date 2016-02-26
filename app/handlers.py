@@ -12,6 +12,7 @@ from models import *
 from helpers import *
 from seeds import get_videos
 from seeds import get_users
+from photos import photodata
 
 from webapp2_extras import sessions
 
@@ -57,7 +58,15 @@ class MainHandler(Handler):
 
 class PhotoHandler(Handler):
     def get(self):
-        self.render('hello world!')
+        self.render('photo-index.html', photodata=photodata)
+
+
+class CollectionHandler(Handler):
+    def get(self,gallery):
+        photos = photodata[gallery]
+        for i in range(len(photos)):
+            photos[i]['link'] = '/photos/'+photos[i]['link'][-12:]
+        self.render('photos.html',photos=photos)
 
 ### These are the handlers that deal with Admin functions
 

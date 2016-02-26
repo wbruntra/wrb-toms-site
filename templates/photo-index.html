@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="col-xs-12 col-md-9">
+  <div class="row text-center">
+    <div id="title-bar" class="col-md-12 headline">
+      <h3>----------Photography----------</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="gal">
+      {% for collection in photodata.keys() %}
+      <div class="col-xs-4 col-md-3 galbox-photo">
+        <span class="entry">
+          <p><a href="/photos/{{collection}}">
+            <img src="{{photodata[collection][0].link}}">
+            <p>{{ collection }}</p>
+          </a></p>
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

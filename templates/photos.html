@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="col-xs-12 col-md-9">
+  <div class="row text-center">
+    <div id="title-bar" class="col-md-12 headline">
+      <h3>----------Photography----------</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="gal">
+      {% for photo in photos %}
+      <div class="col-xs-4 col-md-3 galbox-photo">
+        <span class="entry">
+          <a class="popup-photo" title="{{ photo.caption }}" href="{{ photo.link }}">
+            <img src="{{ photo.link }}" alt="{{ photo.caption }}">
+          </a>
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

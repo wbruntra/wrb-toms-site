@@ -1,6 +1,6 @@
 .container {
   padding-top:30px;
-  margin-left:2%;
+  /*margin-left:2%;*/
 	font-family:Courier New, Courier, monospace;
 }
 
@@ -25,6 +25,10 @@
   width:auto;
 }
 
+.links {
+  margin-top:10px;
+}
+
 .links p {
   margin-bottom: 10px;
   text-transform:uppercase;
@@ -34,6 +38,12 @@
 .description {
   font-size:13px;
 }
+
+a {
+  text-emphasis: none;
+  color:black;
+}
+
 /*
 #title-bar {
   text-align: center;
@@ -68,11 +78,26 @@ a:hover, a:active {color:#CC5500; text-decoration:none}
   .galbox {
     height:320px;
   }
+  .galbox-photo {
+    height:180px;
+  }
 }
 
-@media (min-width:992px) {
+@media (min-width:1200px) {
   .galbox {
-    height:260px;
+    height:280px;
+  }
+  .galbox-photo {
+    height:160px;
+  }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  .galbox {
+    height:230px;
+  }
+  .galbox-photo {
+    height:120px;
   }
 }
 

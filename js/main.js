@@ -9,5 +9,13 @@ $(document).ready(function() {
         fixedContentPos: true,
     });
 
-//    $('#title-bar').sticky({topSpacing:0})
+    $('.popup-photo').magnificPopup({
+        disableOn: 700,
+        type: 'image',
+        fixedBgPos: true,
+        fixedContentPos: true,
+        image: {
+          verticalFit: false
+        }
+    });
 });
