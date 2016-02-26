@@ -11,7 +11,7 @@
 }
 
 .title {
-  font-size:17px;
+  font-size:1.3em;
 }
 
 .navbox {
@@ -75,6 +75,18 @@ a:hover, a:active {color:#CC5500; text-decoration:none}
 .info a:hover {color:#000}*/
 
 @media (max-width:991px) {
+  .title {
+    font-size:1.8em;
+  }
+  .links {
+    font-size:1.4em;
+  }
+  .description {
+    font-size:1.2em;
+  }
+  .container {
+    font-size: 1.5em;
+  }
   .galbox {
     height:320px;
   }
@@ -84,6 +96,9 @@ a:hover, a:active {color:#CC5500; text-decoration:none}
 }
 
 @media (min-width:1200px) {
+  .description {
+    font-size: 1.1em;
+  }
   .galbox {
     height:280px;
   }
@@ -93,6 +108,9 @@ a:hover, a:active {color:#CC5500; text-decoration:none}
 }
 
 @media (min-width:992px) and (max-width:1199px) {
+  .description {
+    font-size: 1.1em;
+  }
   .galbox {
     height:230px;
   }
